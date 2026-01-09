@@ -4,8 +4,9 @@ const timeline = gsap.timeline({
 });
 
 timeline
-  .to("aside", {})
-  .to("main", {}, "<")
+  .to(["main", "aside"], {
+    stagger: 0.15,
+  })
   .to("aside ul a", { stagger: { amount: 0.2 } }, "<0.1");
 let isMenuOpen = false;
 document.querySelector(".menu-toggle").addEventListener("click", () => {
