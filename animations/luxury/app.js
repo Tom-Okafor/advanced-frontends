@@ -5,12 +5,12 @@ const animation = gsap.to(container, {
   height: "28vw",
   borderRadius: "2%",
   paused: true,
-  ease: "power4.in",
+  ease: "power3.out",
 });
 const shrinkText = gsap.to(".container p", {
   x: 0,
   fontSize: "clamp(5rem, 3vw, 12rem)",
-  ease: "power4.in",
+  ease: "power3.out",
   paused: true,
 });
 console.log("I am here");
