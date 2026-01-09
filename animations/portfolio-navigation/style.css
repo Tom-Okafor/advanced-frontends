@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fcfcfc;
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: #212121;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100vw;
+}
+
+.portfolio-item {
+  width: 100%;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  cursor: pointer;
+}
+.details-mask {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.original,
+.copy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 3rem;
+}
+.copy {
+  position: absolute;
+  left: 0;
+  top: 120%;
+}
+
+.line {
+  height: 1px;
+  background-color: #f0f0f0;
+  width: 50px;
+  transform: scaleX(0);
+}
+
+.portfolio-item a {
+  font-size: 2.5rem;
+}
+
+.portfolio-item p {
+  font-size: 1rem;
+  color: #e0e0e0;
+}
