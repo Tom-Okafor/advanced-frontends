@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Cardo Bold";
+  src: url("fonts/Cardo-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Cardo Italic";
+  src: url("fonts/Cardo-Italic.ttf");
+}
+
+@font-face {
+  font-family: "Fira light";
+  src: url(fonts/FiraCode-Light.ttf);
+}
+
+body {
+  background-color: #dbdcb3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+section {
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding-inline: 10vw;
+  position: relative;
+  background-color: #dbdcb3;
+}
+
+.line {
+  height: 100vh;
+  width: 0px;
+  border-right: 1px solid black;
+  transform: scaleY(0);
+}
+
+aside {
+  text-align: right;
+}
+aside h2,
+p {
+  transform: translateY(-110%);
+}
+
+aside h2 {
+  font-size: 3.2rem;
+  font-family: "Cardo Bold";
+  line-height: 1;
+  font-weight: 900;
+}
+
+aside p {
+  font-family: "Cardo Italic";
+  font-size: 1.4rem;
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+p {
+  font-family: "Fira light";
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.background-text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25rem;
+  opacity: 0.07;
+  font-family: "Cardo Bold";
+}
+
+.mask {
+  overflow: hidden;
+}
