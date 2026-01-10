@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "TT Rounds Regular";
+  src: url("TT\ Rounds\ Neue\ Trial\ Regular.ttf");
+}
+
+@font-face {
+  font-family: "TT Rounds ExtraBold";
+  src: url("TT\ Rounds\ Neue\ Trial\ ExtraBold.ttf");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "TT Rounds Regular", sans-serif;
+  background-color: #adc9bc;
+}
+
+main {
+  padding-inline: 7.5vw;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 4rem;
+  font-family: "TT Rounds EXtraBold";
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: fit-content;
+  &:first-child {
+    align-items: flex-end;
+    text-align: right;
+    transform: translateY(-7rem);
+  }
+  &:last-child {
+    transform: translateY(7rem);
+  }
+}
+
+.card h3 {
+  line-height: 1.05;
+  font-size: 2.1rem;
+  font-weight: 400;
+  transform: translateY(-110%);
+}
+
+.box {
+  position: absolute;
+  height: 300px;
+  aspect-ratio: 1/1.25;
+  border-radius: 10px;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  left: 0;
+  background-color: #c5d8cf;
+  z-index: -1;
+}
+
+.box-one {
+  left: -10%;
+}
+.box-two {
+  left: 15%;
+}
+.mask {
+    overflow: hidden;
+}
+
+p {
+  transform: translateY(-110%);
+}
