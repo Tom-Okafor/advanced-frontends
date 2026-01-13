@@ -24,6 +24,7 @@ gsap.to(".top-container p", {
 
 const mainSection = document.querySelector("main");
 const figures = gsap.utils.toArray("figure");
+let isfirstClipPathAnimationRunning = true;
 
 const mainSectionTimeline = gsap.timeline({
   scrollTrigger: {
@@ -52,6 +53,9 @@ mainSectionTimeline
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease: "power3.out",
       stagger: 0.15,
+      onComplete: () => {
+        isfirstClipPathAnimationRunning = false;
+      },
     },
     "<0.5"
   )
@@ -70,13 +74,57 @@ mainSectionTimeline
 
 figures.forEach((figure) => {
   const image = figure.querySelector("img");
-  const imagePathAnimation = gsap.to(image, {
-    clipPath: "polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%)",
-    ease: "power2.inOut",
+  const line = figure.querySelector(".line");
+  const imagePathTimeline = gsap
+    .timeline()
+    .to(image, {
+      clipPath: "polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%)",
+      ease: "power3.inOut",
+      duration: 0.3,
+    })
+    .to(
+      line,
+      {
+        scaleX: 0.3,
+        transformOrigin: "center",
+        ease: "power3.out",
+      },
+      "<"
+    );
+  imagePathTimeline.pause();
+  figure.addEventListener("mouseenter", () => {
+    toggleText(figure.querySelector(".caption-name"));
+    !isfirstClipPathAnimationRunning && imagePathTimeline.play();
   });
-  imagePathAnimation.pause()
-  figure.addEventListener("mouseenter", () => imagePathAnimation.play());
-  figure.addEventListener("mouseleave", () => imagePathAnimation.reverse());
+  figure.addEventListener("mouseleave", () => imagePathTimeline.reverse());
 });
 
+function toggleText(elem) {
+  const toggleLetters = "01";
+  const originalTextContent = elem.innerText;
+  let count = 0;
+  let shuffledToggleLetters = "";
+  requestAnimationFrame(handleToggle);
 
+  function handleToggle() {
+    if (
+      count !== 0 &&
+      shuffledToggleLetters.length === originalTextContent.length
+    ) {
+      shuffledToggleLetters =
+        shuffledToggleLetters.slice(0, count - 1) +
+        originalTextContent.slice(count - 1);
+      elem.innerText = shuffledToggleLetters;
+      count--;
+      requestAnimationFrame(handleToggle);
+    } else if (shuffledToggleLetters.length !== originalTextContent.length) {
+      shuffledToggleLetters +=
+        toggleLetters[Math.floor(Math.random() * toggleLetters.length)];
+      elem.innerText =
+        shuffledToggleLetters +
+        originalTextContent.slice(shuffledToggleLetters.length);
+      count++;
+      requestAnimationFrame(handleToggle);
+    }
+  }
+}
