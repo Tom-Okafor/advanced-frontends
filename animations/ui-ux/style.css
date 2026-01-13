@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1d1f21;
+}
+
+@font-face {
+  font-family: "Fattern";
+  src: url(assets/fonts/Fattern.otf);
+}
+
+@font-face {
+  font-family: "Gill Sans";
+  src: url(assets/fonts/Gill\ Sans\ Medium.otf);
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 18vw;
+  position: relative;
+}
+
+section img {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70vh;
+  width: min(300px, 60vw);
+  object-fit: cover;
+  filter: brightness(0.3);
+  z-index: -1;
+  opacity: 0;
+}
+
+article h2 {
+  font-family: "Fattern", sans-serif;
+  font-size: 4rem;
+  color: #313335;
+  margin-bottom: 20px;
+}
+article p {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  max-width: 80ch;
+  font-size: 1.1rem;
+  word-spacing: 2px;
+}
+
+article {
+  width: 100%;
+}
