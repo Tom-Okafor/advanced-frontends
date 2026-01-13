@@ -19,7 +19,7 @@
 
 .top-container,
 main {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +58,8 @@ main {
   background-color: #ffffff;
   gap: 2rem;
   padding-inline: 5rem;
-}
+  padding-block: 7rem;
+#}
 
 figure {
   flex: 1;
