@@ -31,12 +31,12 @@ const mainSectionTimeline = gsap.timeline({
     trigger: mainSection,
     start: "top 20%",
     end: "bottom center",
-    toggleActions: "play none none none",
+    toggleActions: "play none none reverse",
   },
 });
 const captionEase = {
   y: 0,
-  stagger: 0.2,
+  stagger: 0.15,
   duration: 0.3,
   ease: "power3.in",
 };
@@ -100,8 +100,8 @@ figures.forEach((figure) => {
 });
 
 function toggleText(elem) {
-  const toggleLetters = "01";
-  const originalTextContent = elem.innerText;
+  const toggleLetters = "0 1";
+    const originalTextContent = elem.getAttribute("data-name");
   let count = 0;
   let shuffledToggleLetters = "";
   requestAnimationFrame(handleToggle);
@@ -111,12 +111,33 @@ function toggleText(elem) {
       count !== 0 &&
       shuffledToggleLetters.length === originalTextContent.length
     ) {
+      const scrambledLetters = Array.from(shuffledToggleLetters)
+        .map(
+          () => toggleLetters[Math.floor(Math.random() * toggleLetters.length)]
+        )
+        .join("");
       shuffledToggleLetters =
-        shuffledToggleLetters.slice(0, count - 1) +
-        originalTextContent.slice(count - 1);
+        scrambledLetters.slice(0, shuffledToggleLetters.length - (count - 1)) +
+        shuffledToggleLetters.slice(shuffledToggleLetters.length - (count - 1));
       elem.innerText = shuffledToggleLetters;
       count--;
       requestAnimationFrame(handleToggle);
+    } else if (
+      count === 0 &&
+      shuffledToggleLetters.length === originalTextContent.length
+    ) {
+      let newCount = shuffledToggleLetters.length;
+      function revertToOriginalString() {
+        shuffledToggleLetters =
+          shuffledToggleLetters.slice(0, newCount - 1) +
+          originalTextContent.slice(newCount - 1);
+        elem.innerText = shuffledToggleLetters;
+        newCount--;
+        if (shuffledToggleLetters !== originalTextContent)
+          requestAnimationFrame(revertToOriginalString);
+      }
+      requestAnimationFrame(revertToOriginalString);
+      console.log(count);
     } else if (shuffledToggleLetters.length !== originalTextContent.length) {
       shuffledToggleLetters +=
         toggleLetters[Math.floor(Math.random() * toggleLetters.length)];
