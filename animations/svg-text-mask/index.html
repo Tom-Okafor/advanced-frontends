@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Text Mask</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section></section>
+    <section>
+        <img src="./assets/Dreamy Abstract Landscape.png" alt="Dreamy Abstract Landscape"/>
+      <svg viewbox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
+        <mask id="mask">
+          <rect x="0" y="0" width="100%" height="100%" />
+          <text>Ocean</text>
+        </mask>
+
+        <rect x="0" y="0" width="100%" height="100%" />
+      </svg>
+    </section>
+    <script src="gsap.min.js"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
