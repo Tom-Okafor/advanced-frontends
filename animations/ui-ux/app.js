@@ -19,7 +19,7 @@ sections.forEach((section) => {
     .fromTo(
       splitWords.words,
       { y: 50, opacity: 0 },
-      { opacity: 1, y: 0, stagger: 0.02, duration: 1 }
+      { opacity: 1, y: 0, stagger: 0.01, duration: 1 }
     )
     .to(image, { opacity: 1, top: "50%", duration: 1 }, "<0.3");
 });
