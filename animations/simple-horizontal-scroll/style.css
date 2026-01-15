@@ -7,14 +7,37 @@
 body {
   background-color: #1c1c1c;
   color: white;
-}
 
+  > section {
+    height: 100vh;
+    background-color: #c8e3e3;
+  }
+  > section:first-child {
+    color: #333;
+    font-family: "Gill Sans Medium";
+    display: grid;
+    place-content: center;
+    font-variant: small-caps;
+    h1 {
+      visibility: hidden;
+    }
+  }
+}
+.last-section {
+  color: #333;
+  font-family: "Gill Sans Medium";
+  display: grid;
+  place-content: center;
+  font-variant: small-caps;
+  font-size: 2rem;
+  font-weight: 800;
+}
 @font-face {
   font-family: "Gill Sans Medium";
   src: url(./fonts/Gill\ Sans\ Medium.otf);
 }
 main {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .scroller {
@@ -31,7 +54,7 @@ main {
       font-family: "Gill Sans Medium";
     }
     &:nth-of-type(2) {
-      background-color: #191;
+      background-color: #8c8;
     }
     &:nth-of-type(3) {
       background-color: #a60;
