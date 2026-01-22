@@ -19,9 +19,8 @@
 body {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #fee3e0;
-
   > section {
     position: fixed;
     height: 100%;
@@ -31,7 +30,6 @@ body {
     padding-block: 12vh;
     padding-left: 10vw;
     z-index: 1;
-
 
     .progress-container {
       background-color: #00000044;
