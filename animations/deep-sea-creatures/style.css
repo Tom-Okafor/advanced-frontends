@@ -1,0 +1,118 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(assets/fonts/Jost-VariableFont_wght.ttf);
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  background-color: #0f151d;
+  color: white;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  width: 300%;
+  height: 100%;
+}
+
+.scroll-section {
+  height: 100%;
+  width: 100%;
+  padding-left: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 15vh;
+  position: relative;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+  p {
+    max-width: 45ch;
+    line-height: 1.7;
+    text-wrap-style: pretty;
+    color: #cabcdd;
+  }
+  img {
+    width: 50vw;
+    object-fit: contain;
+    position: absolute;
+    bottom: 30vh;
+    left: 30vw;
+    z-index: -1;
+  }
+}
+
+.tiny-fish {
+  opacity: 0.1;
+  width: 70px;
+  object-fit: contain;
+  position: fixed;
+  top: 20%;
+  left: 25%;
+  transform: rotate(10deg);
+}
+.tiny-fish:nth-of-type(2) {
+  top: 45%;
+  left: 75%;
+}
+.tiny-fish:nth-of-type(3) {
+  top: 10%;
+  left: 5%;
+  transform: rotate(10deg) scale(0.7);
+}
+.tiny-fish:nth-of-type(4) {
+  top: 60%;
+  left: 8%;
+  transform: rotate(10deg) scale(1.1);
+}
+.tiny-fish:nth-of-type(5) {
+  top: 60%;
+  left: 90%;
+}
+.tiny-fish:nth-of-type(6) {
+  top: 80%;
+  left: 70%;
+  transform: rotate(10deg) scale(0.5);
+}
+.tiny-fish:nth-of-type(7) {
+  top: 10%;
+  left: 90%;
+  transform: rotate(10deg) scale(0.7);
+}
+.tiny-fish:nth-of-type(8) {
+  top: 48%;
+  left: 30%;
+  transform: rotate(10deg) scale(1.05);
+}
+.tiny-fish:nth-of-type(9) {
+  top: 90%;
+  left: 30%;
+  transform: rotate(10deg) scale(0.65);
+}
+.tiny-fish:nth-of-type(10) {
+  top: 25%;
+  left: 85%;
+  transform: rotate(10deg) scale(0.8);
+}
+.tiny-fish:nth-of-type(11) {
+  top: 10%;
+  left: 75%;
+  transform: rotate(10deg) scale(0.55);
+}
+.tiny-fish:nth-of-type(12) {
+  top: 15%;
+  left: 65%;
+  transform: rotate(10deg) scale(0.8);
+}
