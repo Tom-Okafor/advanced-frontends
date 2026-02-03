@@ -49,7 +49,7 @@ main {
     object-fit: contain;
     position: absolute;
     bottom: 30vh;
-    left: 30vw;
+    left: 35vw;
     z-index: -1;
   }
 }
