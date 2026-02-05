@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url(assets/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
+section {
+  height: 100vh;
+}
+
+main {
+  position: relative;
+  display: grid;
+  place-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  height: 100vh;
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+  }
+
+  img {
+    position: absolute;
+    width: 200px;
+    aspect-ratio: 1/1;
+    z-index: -6;
+    top: 70%;
+    left: 10%;
+    isolation: isolate;
+    mix-blend-mode: difference;
+  }
+  img:nth-of-type(2) {
+    top: 65%;
+    left: 50%;
+    z-index: 2;
+  }
+  img:nth-of-type(3) {
+    top: 80%;
+    left: 80%;
+  }
+  img:nth-of-type(4) {
+    top: 50%;
+    left: 20%;
+  }
+}
