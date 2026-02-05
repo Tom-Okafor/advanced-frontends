@@ -27,13 +27,12 @@ main {
 
   img {
     position: absolute;
-    width: 200px;
+    width: 150px;
     aspect-ratio: 1/1;
     z-index: -6;
     top: 70%;
     left: 10%;
     isolation: isolate;
-    mix-blend-mode: difference;
   }
   img:nth-of-type(2) {
     top: 65%;
