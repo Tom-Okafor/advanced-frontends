@@ -22,9 +22,8 @@ sections.forEach((section) => {
       scrollTrigger: {
         trigger: 'main',
         start: "top 80%",
-        end: "bottom bottom",
-        scrub: 2,
-        markers: true
+        end: "bottom 75%",
+        scrub: true,
       },
     },
   );
