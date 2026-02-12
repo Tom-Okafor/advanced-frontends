@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  height: 100vh;
+  background-color: #237299;
+  display: flex;
+  cursor: pointer;
+
+  section {
+    flex: 1;
+    display: grid;
+    place-content: center;
+
+    .face {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      background-color: #300901;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      .eyes {
+        display: flex;
+        gap: 3rem;
+        div {
+          background-color: #237299;
+          height: 20px;
+          width: 20px;
+          border-radius: 10px;
+        }
+      }
+      .mouth {
+        height: 60px;
+        width: 60%;
+        border-radius: 50%;
+        border-bottom: 10px solid #237299;
+      }
+    }
+  }
+
+  .right {
+    background-color: #300901;
+    .face {
+      border-radius: 5%;
+      background-color: #237299;
+      .eyes {
+        div {
+          background-color: #300901;
+        }
+      }
+      .mouth {
+        transform: scaleY(-1);
+        border-bottom: 10px solid #300901;
+      }
+    }
+  }
+}
