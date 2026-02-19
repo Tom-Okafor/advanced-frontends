@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "QuickSand";
+  src: url("assets//Quicksand-VariableFont_wght.ttf");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 2rem;
+  background-color: #f4f0cf;
+  font-family: "QuickSand", sans-serif;
+  padding-inline: 5rem;
+  padding-block: 4rem;
+}
+
+.display-direction {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  margin-left: auto;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+}
+
+main {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  figure {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    display: flex;
+    padding: 1.5rem;
+    flex-direction: column;
+    display: flex;
+    width: 250px;
+    gap: 1rem;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+    figcaption {
+      h3 {
+        font-size: 1.1rem;
+        color: #333;
+        text-transform: capitalize;
+        margin-bottom: 2px;
+      }
+      p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+    }
+  }
+}
