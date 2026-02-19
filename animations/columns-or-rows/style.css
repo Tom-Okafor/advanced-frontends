@@ -12,7 +12,6 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-height: 100vh;
   gap: 2rem;
   background-color: #f4f0cf;
@@ -47,7 +46,7 @@ main {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  flex-wrap: wrap;
+
 
   figure {
     background-color: #fff;
@@ -58,6 +57,7 @@ main {
     display: flex;
     width: 250px;
     gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     img {
       width: 100%;
       aspect-ratio: 1/1;
@@ -74,6 +74,19 @@ main {
         font-size: 0.9rem;
         color: #666;
       }
+    }
+  }
+}
+
+main.column {
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  figure {
+    width: 100%;
+    flex-direction: row;
+    img {
+      width: 150px;
     }
   }
 }
