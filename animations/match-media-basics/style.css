@@ -22,5 +22,6 @@ body {
     font-family: "Jost";
     text-transform: capitalize;
     text-align: center;
+    visibility: hidden;
   }
 }
