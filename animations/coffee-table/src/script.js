@@ -48,7 +48,7 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const gui = new dat.GUI();
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
 const loader = new GLTFLoader();
 
 let coffee_table = null;
@@ -71,6 +71,9 @@ loader.load("../static/coffee_table_084615.glb", function (gltf) {
   coffee_table_folder
     .add(coffee_table.rotation, "z", -5, 5, 0.01)
     .name("Rotation Z");
+  coffee_table_folder.add(coffee_table.scale, "x", 0, 5, 0.01).name("Scale X");
+  coffee_table_folder.add(coffee_table.scale, "y", 0, 5, 0.01).name("Scale Y");
+  coffee_table_folder.add(coffee_table.scale, "z", 0, 5, 0.01).name("Scale Z");
 
   const h1 = document.querySelector("h1");
   const upper_text = document.querySelector(".first");
@@ -114,12 +117,12 @@ loader.load("../static/coffee_table_084615.glb", function (gltf) {
     );
 });
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-const pointLight = new THREE.PointLight(0xffffff, 1);
+const ambientLight = new THREE.AmbientLight(0x000000, 1);
+const pointLight = new THREE.PointLight(0xffffff, 2);
 pointLight.position.set(5, 5, 5);
 scene.add(pointLight);
 scene.add(ambientLight);
-pointLight.position.set(-0.18, -2.82, 0.93);
+pointLight.position.set(1.66, -3.85, 4.3);
 const point_light_folder = gui.addFolder("Point Light");
 point_light_folder
   .add(pointLight.position, "x", -10, 10, 0.01)
