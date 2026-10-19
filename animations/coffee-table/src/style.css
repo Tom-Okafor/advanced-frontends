@@ -5,7 +5,9 @@
 }
 
 :root {
-  --accent-color: #8507ec;
+  --accent-color: #c082f2;
+  --accent-color-2: #5b0105;
+  --background: #e2cdbd;
 }
 
 canvas.webgl {
@@ -16,6 +18,7 @@ canvas.webgl {
   top: 0;
   bottom: 0;
   right: 0;
+  z-index: -1;
 }
 
 @font-face {
@@ -39,6 +42,7 @@ h1 {
     display: block;
     font-family: "Recoleta Alt";
     line-height: 1;
+    color: var(--accent-color-2);
   }
   .under {
     color: #020300;
@@ -52,7 +56,7 @@ body {
   font-family: "Nunito";
   font-weight: 400;
   letter-spacing: 0.03em;
-  background: #e2cdbd;
+  background: var(--background);
 }
 
 p {
@@ -64,4 +68,28 @@ p {
   height: 100vh;
   display: grid;
   place-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-inline: 3rem;
+
+  article {
+    flex: 1;
+    color: white;
+
+    h2 {
+      font-family: "Recoleta Alt";
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+
+    p {
+      max-width: 35ch;
+      font-weight: 400;
+    }
+  }
 }
