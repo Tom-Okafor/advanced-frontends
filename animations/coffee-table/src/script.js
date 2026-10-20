@@ -4,6 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
 import * as dat from "dat.gui";
+import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -50,6 +51,16 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const gui = new dat.GUI();
 // const controls = new OrbitControls(camera, renderer.domElement);
 const loader = new GLTFLoader();
+
+const lenis = new Lenis();
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+});
+
+gsap.ticker.lagSmoothing(0);
 
 let coffee_table = null;
 loader.load("../static/coffee_table_084615.glb", function (gltf) {
@@ -115,10 +126,84 @@ loader.load("../static/coffee_table_084615.glb", function (gltf) {
       },
       "<0.3",
     );
+
+  const main = document.querySelector("main");
+  const table_tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: main,
+      start: "top 75%",
+      end: "top 30%",
+      scrub: 1,
+    },
+  });
+  table_tl
+    .to(coffee_table.position, {
+      y: -0.15,
+    })
+    .to(
+      coffee_table.scale,
+      {
+        x: 0.48,
+        y: 0.48,
+        z: 0.48,
+      },
+      "<",
+    )
+    .to(
+      coffee_table.rotation,
+      {
+        x: 1.49,
+      },
+      "<",
+    )
+    .to(
+      pointLight.position,
+      {
+        x: 2.32,
+        y: 2.54,
+        z: 9.5,
+      },
+      "<",
+    );
+
+  const article_head = document.querySelectorAll("article h2");
+  const article_text = document.querySelectorAll("article p");
+  const split_article_head = SplitText.create(article_head, {
+    type: "chars, words",
+    mask: "chars",
+  });
+  const split_article_text = SplitText.create(article_text, {
+    type: "lines",
+    mask: "lines",
+  });
+  gsap.set(split_article_head.chars, { yPercent: 150 });
+  gsap.set(split_article_text.lines, { yPercent: 150 });
+  const text_split_tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: main,
+      start: "top center",
+      toggleActions: "play none none reverse",
+    },
+  });
+  text_split_tl
+    .to(split_article_head.chars, {
+      yPercent: 0,
+      ease: "power4.out",
+      stagger: 0.01,
+    })
+    .to(
+      split_article_text.lines,
+      {
+        yPercent: 0,
+        ease: "power3.out",
+        stagger: 0.05,
+      },
+      "<0.7",
+    );
 });
 
 const ambientLight = new THREE.AmbientLight(0x000000, 1);
-const pointLight = new THREE.PointLight(0xffffff, 2);
+const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(5, 5, 5);
 scene.add(pointLight);
 scene.add(ambientLight);
